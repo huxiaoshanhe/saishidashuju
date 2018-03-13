@@ -1,0 +1,259 @@
+.top .nav a.index {
+	border-bottom: 2px solid #2f84ee;
+	line-height: 62px;
+}
+.main {
+	width:100%;
+	height:100%;
+	border:17px solid #1c1c34;
+	min-width: 1200px;
+	min-height: 650px;
+}
+.main .first-row {
+	width:100%;
+	height:40%;
+	border-bottom:8px solid #1c1c34;
+}
+.main .first-row .basic-statistics {
+	width:40%;
+	height:100%;
+	float:left;
+	border-right:8px solid #1c1c34;
+}
+.main .first-row .every-province {
+	width:60%;
+	height:100%;
+	float:right;
+	border-left:8px solid #1c1c34;
+}
+.main .second-row {
+	width:100%;
+	height:60%;
+	border-top:8px solid #1c1c34;
+}
+.main .second-row .left {
+	width:65%;
+	height:100%;
+	border-right:8px solid #1c1c34;
+	float:left;
+}
+.main .second-row .left .distributes {
+	width:100%;
+	height:50%;
+	border-bottom: 8px solid #1c1c34;
+}
+.main .second-row .left .distributes .sex {
+	width:33%;
+	height:100%;
+	border-right: 8px solid #1c1c34;
+	float:left;
+}
+.main .second-row .left .distributes .subject {
+	width:34%;
+	height:100%;
+	border-right: 8px solid #1c1c34;
+	border-left: 8px solid #1c1c34;
+	float:left;
+}
+.main .second-row .left .distributes .times {
+	width:33%;
+	height:100%;
+	border-left: 8px solid #1c1c34;
+	float:left;
+}
+.main .second-row .left .distribute {
+	width:100%;
+	height:50%;
+	border-top: 8px solid #1c1c34;
+}
+.main .second-row .right {
+	width:35%;
+	height:100%;
+	border-left:8px solid #1c1c34;
+	float:left;
+}
+
+
+.main .inner {
+	height:100%;
+	width:100%;
+	border-radius: 3px;
+	background:#212139;
+	box-shadow: 2px 2px 2px #161729;
+}
+
+.basic-statistics .inner {
+	padding:10px 30px;
+	position: relative;
+}
+.basic-statistics .inner .rowline {
+	width:100%;
+	height:2px;
+	position: absolute;
+	top:50%;
+	left:0;
+	margin-top: -1px;
+	padding:0 40px;
+}
+.basic-statistics .inner .rowline p {
+	width:100%;
+	height:2px;
+	background: #1c1c34;
+}
+.basic-statistics .inner .colline {
+	width:2px;
+	height:100%;
+	position: absolute;
+	left:50%;
+	top:0;
+	margin-left:-1px;
+	padding:50px 0 40px 0;
+}
+.basic-statistics .inner .colline p {
+	height:100%;
+	width:2px;
+	background: #1c1c34;
+}
+.basic-statistics .inner .today-persons,
+.basic-statistics .inner .today-universities,
+.basic-statistics .inner .total-persons,
+.basic-statistics .inner .total-universities {
+	width:50%;
+	height:50%;
+	float:left;
+}
+.basic-statistics .inner .title {
+	font-size: 14px;
+	line-height: 50px;
+	text-indent: 20px;
+	height:50px;
+}
+.basic-statistics .inner .number {
+	font-size:30px;
+	text-indent: 20px;
+}
+.basic-statistics .inner .today-persons .number {
+	color:#3085f0;
+}
+.basic-statistics .inner .today-universities .number {
+	color:#f03254;
+}
+.basic-statistics .inner .total-persons .number {
+	color:#3183ef;
+}
+.basic-statistics .inner .total-universities .number {
+	color:#f03254;
+}
+
+.main .second-row .distribute .inner {
+	position: relative;
+	padding-right:100px;
+}
+.main .second-row .distribute .inner .legend {
+	position: absolute;
+	width:80px;
+	right:10px;
+	top:25px;
+	font-size: 12px;
+}
+.main .second-row .distribute .inner .legend .legend-item {
+	margin-bottom: 5px;
+	line-height: 15px;
+	cursor: pointer;
+}
+.main .second-row .distribute .inner .legend span {
+	display: inline-block;
+	width:25px;
+	height:15px;
+	border-radius: 4px;
+	position: relative;
+	top:2px;
+	margin-right: 4px;
+}
+.main .second-row .distribute .inner .legend .span0 {
+	background: #3085ef;
+}
+.main .second-row .distribute .inner .legend .span1 {
+	background: #f03153;
+}
+.main .second-row .distribute .inner .legend .span2 {
+	background: #f8bc66;
+}
+.main .second-row .distribute .inner .legend .span3 {
+	background: #18cad4;
+}
+
+.main .second-row .right .inner {
+	padding:40px 20px 20px 20px;
+	position: relative;
+}
+.main .second-row .right .inner h2 {
+	position: absolute;
+	left:20px;
+	top:0;
+	line-height: 40px;
+	font-size: 14px;
+	font-weight: normal;
+}
+.main .second-row .right .inner table {
+	height:100%;
+	width:100%;
+	font-size:12px;
+	border:1px solid #46475b;
+	border-radius: 5px;
+}
+.main .second-row .right table th {
+	text-align: left;
+	background:#37384d;
+}
+.main .second-row .right table th:nth-child(1) {
+	width:10%;
+}
+.main .second-row .right table th:nth-child(2) {
+	width:50%;
+}
+.main .second-row .right table th:nth-child(3) {
+	width:25%;
+}
+.main .second-row .right table th:nth-child(4) {
+	width:15%;
+}
+.main .second-row .right table tr:nth-child(even) {
+	background:#282840;
+}
+.main .second-row .right table th, 
+.main .second-row .right table td {
+	padding:0 5px;
+}
+.main .second-row .right table td .icon-1,
+.main .second-row .right table td .icon-2,
+.main .second-row .right table td .icon-3 {
+	display: inline-block;
+	width:18px;
+	height:23px;
+	line-height: 20px;
+	text-align: center;
+	color:#272741;
+}
+.main .second-row .right table td .icon-1 {
+	background:url(../images/icon-1.png);
+}
+.main .second-row .right table td .icon-2 {
+	background:url(../images/icon-2.png);
+}
+.main .second-row .right table td .icon-3 {
+	background:url(../images/icon-3.png);
+}
+.main .second-row .right table td .ico {
+	display: inline-block;
+	width:7px;
+	height:10px;
+	margin-right: 3px;
+}
+.main .second-row .right table td .ico-up {
+	background: url(../images/up.png);
+}
+.main .second-row .right table td .ico-down {
+	background: url(../images/down.png);
+	margin-right: 5px;
+}

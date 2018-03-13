@@ -1,0 +1,307 @@
+.top .nav a.result {
+	border-bottom: 2px solid #2f84ee;
+	line-height: 62px;
+}
+.main {
+	width:100%;
+	height:100%;
+	border:17px solid #1c1c34;
+	min-width: 1200px;
+	min-height: 650px;
+}
+.main .first-row {
+	width:100%;
+	height:40%;
+	border-bottom:8px solid #1c1c34;
+}
+.main .first-row .left {
+	width:33%;
+	height:100%;
+	border-right:8px solid #1c1c34;
+	float:left;
+	padding-top:65px;
+	position: relative;
+}
+.main .first-row .left .average {
+	width:100%;
+	height:60px;
+	position: absolute;
+	top:0;
+	left:0;
+	line-height: 60px;
+	text-indent: 20px;
+}
+.main .first-row .left .average .inner {
+	padding-right: 10px;
+}
+.main .first-row .left .average span {
+	float:right;	
+}
+.main .first-row .left .average span.little {
+	font-size:12px;
+	display: block;
+	line-height: 20px;
+	padding:10px 0;
+	width:76px;
+	text-indent: 0;
+}
+.main .first-row .left .average span a {
+	display: block;
+	width:76px;
+	text-align: left;
+}
+.main .first-row .left .average span a i {
+	color:#f03254;
+	font-style: normal;
+}
+.main .first-row .left .average span.big {
+	font-size: 22px;
+	color:#f03254;
+	line-height: 60px;
+	padding:0 5px;
+	margin-right:30px;
+}
+.main .first-row .left .distribute {
+	width:100%;
+	height:100%;
+	border-top:5px solid #1c1c34;
+}
+.main .first-row .middle {
+	width:45%;
+	height:100%;
+	border-right:8px solid #1c1c34;
+	border-left:8px solid #1c1c34;
+	float:left;
+}
+.main .first-row .right {
+	width:22%;
+	height:100%;
+	border-left:8px solid #1c1c34;
+	float:left;
+}
+.main .first-row .right .nandu,
+.main .first-row .right .qufendu {
+	height:50%;
+	padding:0 20px;
+}
+.main .first-row .right h3 {
+	font-size:14px;
+	font-weight: normal;
+	height:50px;
+	line-height: 50px;
+}
+.main .first-row .right dl {
+	width:100%;
+}
+.main .first-row .right dl dt {
+	height:10px;
+	width:100%;
+	border-radius:5px;
+	background:#656476;
+}
+.main .first-row .right .nandu dt div {
+	height:100%;
+	background:#18cad4;
+	border-radius:5px;
+}
+.main .first-row .right .qufendu dt div {
+	height:100%;
+	background:#ef3153;
+	border-radius:5px;
+}
+.main .first-row .right dl dd {
+	line-height: 30px;
+	font-size:12px;
+}
+
+.main .second-row {
+	width:100%;
+	height:60%;
+	border-top:8px solid #1c1c34;
+}
+.main .second-row .left {
+	width:33%;
+	height:100%;
+	border-right:8px solid #1c1c34;
+	float:left;
+}
+.main .second-row .left .inner {
+	padding:70px 20px 30px 20px;
+	position: relative;
+}
+.main .second-row .left .inner h3 {
+	height:40px;
+	line-height: 40px;
+	font-weight: normal;
+	font-size: 14px;
+	position: absolute;
+	top:0;
+}
+.main .second-row .left .inner .item {
+	width:33%;
+	height:50%;
+	float: left;
+	position: relative;
+	padding-bottom: 20px;
+	padding-top: 10px;
+}
+.main .second-row .left .inner .item:nth-child(2),
+.main .second-row .left .inner .item:nth-child(5) {
+	width:34%;
+}
+.main .second-row .left .inner .item .chart {
+	width:100%;
+	height:100%;
+}
+.main .second-row .left .inner .item .name {
+	position: absolute;
+	bottom: 0;
+	width:100%;
+	height:30px;
+	font-size: 12px;
+	text-align: center;
+}
+.main .second-row .middle {
+	width:34%;
+	height:100%;
+	border-right:8px solid #1c1c34;
+	border-left:8px solid #1c1c34;
+	float:left;
+}
+.main .second-row .right {
+	width:33%;
+	height:100%;
+	border-left:8px solid #1c1c34;
+	float:left;
+}
+.main .inner {
+	height:100%;
+	width:100%;
+	border-radius: 3px;
+	background:#212139;
+	box-shadow: 2px 2px 2px #161729;
+}
+
+.main .second-row .middle .inner {
+	padding:40px 20px 20px 20px;
+	position: relative;
+}
+.main .second-row .middle .inner h2 {
+	position: absolute;
+	left:20px;
+	top:0;
+	line-height: 40px;
+	font-size: 14px;
+	font-weight: normal;
+}
+.main .second-row .middle .inner table {
+	height:100%;
+	width:100%;
+	font-size:12px;
+	border:1px solid #46475b;
+	border-radius: 5px;
+}
+.main .second-row .middle table th {
+	text-align: left;
+	background:#37384d;
+}
+.main .second-row .middle table th:nth-child(1) {
+	width:10%;
+}
+.main .second-row .middle table th:nth-child(2) {
+	width:40%;
+}
+.main .second-row .middle table th:nth-child(3) {
+	width:40%;
+}
+.main .second-row .middle table th:nth-child(4) {
+	width:10%;
+}
+.main .second-row .middle table tr:nth-child(even) {
+	background:#282840;
+}
+.main .second-row .middle table th, 
+.main .second-row .middle table td {
+	padding:0 5px;
+}
+.main .second-row .middle table td .icon-1,
+.main .second-row .middle table td .icon-2,
+.main .second-row .middle table td .icon-3 {
+	display: inline-block;
+	width:18px;
+	height:23px;
+	line-height: 20px;
+	text-align: center;
+	color:#272741;
+}
+.main .second-row .middle table td .icon-1 {
+	background:url(../images/icon-1.png);
+}
+.main .second-row .middle table td .icon-2 {
+	background:url(../images/icon-2.png);
+}
+.main .second-row .middle table td .icon-3 {
+	background:url(../images/icon-3.png);
+}
+
+.main .second-row .right .inner {
+	padding:40px 20px 20px 20px;
+	position: relative;
+}
+.main .second-row .right .inner h2 {
+	position: absolute;
+	left:20px;
+	top:0;
+	line-height: 40px;
+	font-size: 14px;
+	font-weight: normal;
+}
+.main .second-row .right .inner table {
+	height:100%;
+	width:100%;
+	font-size:12px;
+	border:1px solid #46475b;
+	border-radius: 5px;
+}
+.main .second-row .right table th {
+	text-align: left;
+	background:#37384d;
+}
+.main .second-row .right table th:nth-child(1) {
+	width:10%;
+}
+.main .second-row .right table th:nth-child(2) {
+	width:35%;
+}
+.main .second-row .right table th:nth-child(3) {
+	width:40%;
+}
+.main .second-row .right table th:nth-child(4) {
+	width:15%;
+}
+.main .second-row .right table tr:nth-child(even) {
+	background:#282840;
+}
+.main .second-row .right table th, 
+.main .second-row .right table td {
+	padding:0 5px;
+}
+.main .second-row .right table td .icon-1,
+.main .second-row .right table td .icon-2,
+.main .second-row .right table td .icon-3 {
+	display: inline-block;
+	width:18px;
+	height:23px;
+	line-height: 20px;
+	text-align: center;
+	color:#272741;
+}
+.main .second-row .right table td .icon-1 {
+	background:url(../images/icon-1.png);
+}
+.main .second-row .right table td .icon-2 {
+	background:url(../images/icon-2.png);
+}
+.main .second-row .right table td .icon-3 {
+	background:url(../images/icon-3.png);
+}

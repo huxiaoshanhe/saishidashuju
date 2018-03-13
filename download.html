@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="pf">
+<head>
+	<meta charset="UTF-8">
+	<title>下载pdf文档</title>
+	<link rel="stylesheet" type="text/css" href="css/download.css" />
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/html2canvas.min.js"></script>
+	<script type="text/javascript" src="js/echarts.min.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/download.js"></script>
+</head>
+<body ng-controller="mainCtrl as mc">	
+	<div class="coverPage" id="coverPage">
+		<div class="name">首届全国财经高校大学生信息素养大赛</div>
+		<div class="power">本报告由EPS数据生成，仅供参赛单位参阅</div>
+		<div class="clear"></div>
+		<div class="title">
+			<h1 ng-click="mc.export()">对外经贸大学</h1>
+			<h1>参赛与赛果数据分析报告</h1>
+			<h3>(2017)</h3>
+		</div>
+		<div class="footer">
+			<div class="orgName">对外经贸大学图书馆</div>
+			<div class="date">2017年11月</div>
+		</div>
+	</div>
+
+	<div class="line"></div>
+
+	<div class="reportContent">
+		<h1 ng-bind="mc.textData.first.text0"></h1>
+		<h2 ng-bind="mc.textData.first.text1"></h2>
+		<p ng-bind="mc.textData.first.text2"></p>
+		<p ng-bind="mc.textData.first.text3"></p>
+
+		<div class="inner" id="educationBar">
+			<education-bar data="mc.educationBar"></education-bar>
+			<div class="legend" id="legend"></div>
+		</div>
+
+		<p ng-bind="mc.textData.second.text0"></p>
+
+		<div class="inner" id="subjectPie">
+			<subject-pie data="mc.subjectPie"></subject-pie>
+		</div>
+		<p ng-bind="mc.textData.third.text0"></p>
+
+		<college data="mc.colleges" id="colleges"></college>
+
+		<p ng-bind="mc.textData.fourth.text0"></p>
+
+		<div class="inner" id="timeRadar">
+			<time-radar data="mc.timeRadar"></time-radar>
+		</div>
+
+		<h2 ng-bind="mc.textData.fifth.text0"></h2>
+		<p ng-bind="mc.textData.fifth.text1"></p>
+		<p ng-bind="mc.textData.fifth.text2"></p>
+
+		<div class="inner" id="scoreBar">
+			<garde-section data="mc.scoreBar"></garde-section>
+			<div class="legend">
+				<div class="legend-item"><span class="span1"></span>90-100</div>
+				<div class="legend-item"><span class="span2"></span>80-90</div>
+				<div class="legend-item"><span class="span3"></span>70-80</div>
+				<div class="legend-item"><span class="span4"></span>60-70</div>
+				<div class="legend-item"><span class="span5"></span>60分以下</div>
+			</div>
+		</div>
+		<p ng-bind="mc.textData.sixth.text0"></p>
+		<p ng-bind="mc.textData.sixth.text1"></p>
+
+		<div class="inner" id="scoreRates">
+			<h3>不同类型试题得分率</h3>
+			<score-rates data="mc.scoreRates"></score-rates>
+		</div>
+
+		<h2 ng-bind="mc.textData.seventh.text0"></h2>
+		<p ng-bind="mc.textData.seventh.text1"></p>
+
+		<h3 class="h3" ng-bind="mc.textData.seventh.text2"></h3>
+		<table>
+			<tr>
+				<td>试卷</td>
+				<td>参赛人数</td>
+				<td>已出成绩人数</td>
+				<td>平均成绩（百分修正）</td>
+				<td>难度</td>
+				<td>难度排名（由难及易）</td>
+			</tr>
+			<tr>
+				<td>{{mc.textData.table.paperD[0].TITLE}}</td>
+				<td>{{mc.textData.table.paperD[0].UCOUNT}}</td>
+				<td>{{mc.textData.table.paperD[0].SCOUNT}}</td>
+				<td>{{mc.textData.table.paperD[0].SCORE}}</td>
+				<td>{{mc.textData.table.paperD[0].PAPER_D}}</td>
+				<td>{{mc.textData.table.paperD[0].OVER}}</td>
+			</tr>
+		</table>
+		<h3 class="h3" ng-bind="mc.textData.seventh.text3"></h3>
+		<table>
+			<tr>
+				<td>试卷</td>
+				<td>参赛人数</td>
+				<td>已出成绩人数</td>
+				<td>平均成绩（百分修正）</td>
+				<td>区分度</td>
+				<td>区分度排名（由高及低）</td>
+			</tr>
+			<tr>
+				<td>{{mc.textData.table.paperDIS[0].TITLE}}</td>
+				<td>{{mc.textData.table.paperDIS[0].UCOUNT}}</td>
+				<td>{{mc.textData.table.paperDIS[0].SCOUNT}}</td>
+				<td>{{mc.textData.table.paperDIS[0].SCORE}}</td>
+				<td>{{mc.textData.table.paperDIS[0].PAPER_DIS}}</td>
+				<td>{{mc.textData.table.paperDIS[0].OVER}}</td>
+			</tr>
+		</table>
+		<div class="a-right" ng-bind="mc.textData.seventh.text4"></div>
+		<h2>附：</h2>
+		<h2>1、客观题与主观题</h2>
+		<p>这里定义的客观题包含单选题、多选题、判断题，主观题包含填空题、简答题、分析题。
+		若某份试卷未出某种题型，则不予计入。 
+		</p>
+		<h2>2、难度与区分度</h2>
+		<p>评价一份试卷的质量与答题情况，人们通常使用难度与区分度这两个评价指标。</p>
+		<p>这里难度定义为：（高分组得分率+低分组得分率）/2，其中：高分组得分率是指某份试
+		卷中成绩排在前27%的答题者的平均得分/该试卷总分；低分组得分率是指某份试卷中成绩排在
+		后27%的答题者的平均得分/该试卷总分。</p>
+		<p>难度值范围在0-1之间，0表示最难，1表示最简单。一般认为>0.7说明试题容易，(0.4,0.7]难
+		度适中，<=0.4则认为试题较难。</p>
+		<p>区分度定义为：高分组得分率-低分组得分率，其中：高分组得分率是指某份试卷中成绩排
+		在前27%的答题者的平均得分/该试卷总分；低分组得分率是指某份试卷中成绩排在后27%的答
+		题者的平均得分/该试卷总分。</p>
+		<p>区分度值范围在0-1之间，0表示区分度最差，1表示区分度最佳。一般认为>=0.4区分度很
+		好，[0.3,0.4]表示区分度较好，[0.2,0.3]表示区分度较差，<=0.19表示区分度很差。</p>
+		<p>这里若某套试卷有成绩的参赛者<=5人，则不会给出难度与区分度的值。</p>
+
+		<h2>3、HHI指数</h2>
+		<p>HHI指数（赫芬达尔—赫希曼指数），经常被用来测量产业集中度，在经济与政府管制部
+		门等使用较多。这里用HHI指数来衡量参赛院系的集中程度，具体计算公式如下：</p>
+		<div style="width:1200px;text-align: center;margin:0 auto;padding:20px 0;"><img src="images/gongshi.jpg" alt=""></div>
+		<p>其中，Xi为i院系的参赛者人数，X为该学校总参赛人数，N为该学校参赛院系数。为便于
+		显示将结果乘上10000，参考相关资料，定义了如下集中度：</p>
+
+		<table>
+			<tr>
+				<td>HHI指数</td>
+				<td>>=3000</td>
+				<td>[1800,3000)</td>
+				<td>[1000,1800)</td>
+				<td>[500,1000)</td>
+				<td><500</td>
+			</tr>
+			<tr>
+				<td>集中度</td>
+				<td>很高</td>
+				<td>较高</td>
+				<td>适中</td>
+				<td>较低</td>
+				<td>很低</td>
+			</tr>
+		</table>
+	</div>
+	<div style="height:50px;"></div>
+</body>
+</html>

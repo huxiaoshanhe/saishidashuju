@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="pf">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<title>赛事大数据-高校初赛大数据报告</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/report.css" />
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/html2canvas.min.js"></script>
+	<script type="text/javascript" src="js/scrollbar.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+	<script type="text/javascript" src="js/echarts.min.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/report.js"></script>
+</head>
+<body ng-controller="mainCtrl as mc" ng-click="mc.mainClick()">
+	<div ng-include="'common/header.html'"></div>
+	<div class="main">
+		<div class="breadNav">
+			<div class="inner">
+				<span class="current">当前学校：{{mc.currentUnivers.GROUP_NAME}}</span>
+				<div class="change">
+					<span ng-click="mc.showList($event)">切换<i></i></span>
+					<div class="list" ng-show="mc.isShowList" id="schoolList" ng-click="mc.prevent($event)"><ul>
+						<li ng-repeat="l in mc.universities" ng-bind="l.GROUP_NAME" ng-click="mc.selectUnivers(l)"></li>
+					</ul>
+					</div>
+				</div>
+				<span class="output" ng-click="mc.export()"><i class="exprot"></i>智能生成大数据报告</span>
+			</div>
+		</div>
+
+		<div class="first-row">
+			<div class="left">
+				<div class="inner">
+					<div class="rowline">
+						<p></p>
+					</div>
+					<div class="colline">
+						<p></p>
+					</div>
+					<div class="today-persons">
+						<div class="title">累计参赛人数</div>
+						<div class="number">{{mc.data.JOIN_C_A}}</div>
+					</div>
+					<div class="today-universities">
+						<div class="title">参赛者平均分(百分修正)</div>
+						<div class="number"><span class="average">{{mc.data.SCORE_AVG}}</span><div class="small f-left"><span>客观题：{{mc.data.SCORE_O_AVG}}</span><span>主观题：{{mc.data.SCORE_S_AVG}}</span></div></div>
+					</div>
+					<div class="total-persons">
+						<div class="title">累计参赛人数排名</div>
+						<div class="number">{{mc.userSort.OVER}}<span class="small">/{{mc.userSort.ALL}}</span></div>
+					</div>
+					<div class="total-universities">
+						<div class="title">参赛者平均分排名</div>
+						<div class="number">{{mc.avgSort.OVER}}<span class="small">/{{mc.avgSort.ALL}}</span></div>
+					</div>
+				</div>
+			</div>
+			<div class="right">
+				<div class="inner" id="scoreBar">
+					<garde-section data="mc.scoreBar"></garde-section>
+					<div class="legend">
+						<div class="legend-item"><span class="span1"></span>90-100</div>
+						<div class="legend-item"><span class="span2"></span>80-90</div>
+						<div class="legend-item"><span class="span3"></span>70-80</div>
+						<div class="legend-item"><span class="span4"></span>60-70</div>
+						<div class="legend-item"><span class="span5"></span>60分以下</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="second-row">
+			<div class="inner" id="scoreRates">
+				<h3>不同类型试题得分率</h3>
+				<score-rates data="mc.scoreRates"></score-rates>
+			</div>
+		</div>
+
+		<div class="third-row">
+			<div class="left">
+				<div class="sex">
+					<div class="inner">
+						<sex-ring data="mc.sexRing"></sex-ring>
+					</div>
+				</div>
+				<div class="subject">
+					<div class="inner" id="subjectPie">
+						<subject-pie data="mc.subjectPie"></subject-pie>
+					</div>
+				</div>
+				<div class="times">
+					<div class="inner" id="timeRadar">
+						<time-radar data="mc.timeRadar"></time-radar>
+					</div>
+				</div>
+				<div class="education">
+					<div class="inner" id="educationBar">
+						<education-bar data="mc.educationBar"></education-bar>
+						<div class="legend" id="legend"></div>
+					</div>
+				</div>
+				<div class="hard">
+					<div class="inner">
+						<div class="nandu">
+							<h3>试卷难度平均值</h3>
+							<dl>
+								<dt><div ng-style="mc.hardStyle" title="{{mc.hard}}"></div></dt>
+								<dd>试卷总数：{{mc.hardTop.ALL}} &nbsp;&nbsp;&nbsp;&nbsp;难度区间：[0,1]</dd>
+							</dl>
+						</div>
+						<div class="qufendu">
+							<h3>试卷区分度平均值</h3>
+							<dl>
+								<dt><div ng-style="mc.areaStyle" title="{{mc.area}}"></div></dt>
+								<dd>试卷总数：{{mc.areaTop.ALL}} &nbsp;&nbsp;&nbsp;&nbsp;区分度区间：[0,1]</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="right">
+				<div class="inner" id="colleges">
+					<college data="mc.colleges"></college>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

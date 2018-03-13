@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="pf">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<title>赛事大数据-参赛实时大数据（初赛）</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/echarts.min.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+</head>
+<body>
+	<div ng-include="'common/header.html'"></div>
+	<div class="main" ng-controller="mainCtrl as mc">
+		<div class="first-row">
+			<div class="basic-statistics">
+				<div class="inner">
+					<div class="rowline">
+						<p></p>
+					</div>
+					<div class="colline">
+						<p></p>
+					</div>
+					<div class="today-persons">
+						<div class="title">今日参赛人数</div>
+						<div class="number" ng-bind="mc.data.JOIN_C_T"></div>
+					</div>
+					<div class="today-universities">
+						<div class="title">今日参赛高校数</div>
+						<div class="number" ng-bind="mc.data.JOIN_SC_T"></div>
+					</div>
+					<div class="total-persons">
+						<div class="title">累计参赛人数</div>
+						<div class="number" ng-bind="mc.data.JOIN_C_A"></div>
+					</div>
+					<div class="total-universities">
+						<div class="title">累计参赛高校数</div>
+						<div class="number" ng-bind="mc.data.JOIN_SC_A"></div>
+					</div>
+				</div>
+			</div>
+			<div class="every-province">
+				<div class="inner">
+					<every-province data="mc.joinData"></every-province>
+				</div>
+			</div>
+		</div>
+		<div class="second-row">
+			<div class="left">
+				<div class="distributes">
+					<div class="sex">
+						<div class="inner">
+							<sex-ring data="mc.sexRing"></sex-ring>
+						</div>
+					</div>
+					<div class="subject">
+						<div class="inner">
+							<subject-pie data="mc.subjectPie"></subject-pie>
+						</div>
+					</div>
+					<div class="times">
+						<div class="inner">
+							<time-radar data="mc.timeRadar"></time-radar>
+						</div>
+					</div>
+				</div>
+				<div class="distribute">
+					<div class="inner">
+						<education-bar data="mc.educationBar"></education-bar>
+						<div class="legend" id="legend"></div>
+					</div>
+				</div>
+			</div>
+			<div class="right">
+				<div class="inner">
+					<h2>高校参赛人数排行榜(Top10)</h2>
+					<table cellspacing="0" cellpadding="0">
+						<tr>
+							<th>排名</th>
+							<th>高校名称</th>
+							<th>累计参赛人数</th>
+							<th>涨/跌</th>
+						</tr>
+						<tr ng-repeat="t in mc.sortTop">
+							<td><span class="icon-{{t.OVER}}">{{t.OVER}}</span></td>
+							<td>{{t.GROUP_NAME}}</td>
+							<td>{{t.COUNT}}</td>
+							<td><i class="ico" ng-class="{'ico-up':t.TOP>0,'ico-down':t.TOP<0}"></i>{{t.TOP}}</td>
+						</tr>
+						<tr ng-show="mc.sortTop.length<10">
+							<td colspan="4">&nbsp;</td>
+						</tr>	
+						<tr ng-show="mc.sortTop.length<9">
+							<td colspan="4">&nbsp;</td>
+						</tr>	
+						<tr ng-show="mc.sortTop.length<8">
+							<td colspan="4">&nbsp;</td>
+						</tr>	
+						<tr ng-show="mc.sortTop.length<7">
+							<td colspan="4">&nbsp;</td>
+						</tr>
+						<tr ng-show="mc.sortTop.length<6">
+							<td colspan="4">&nbsp;</td>
+						</tr>
+						<tr ng-show="mc.sortTop.length<5">
+							<td colspan="4">&nbsp;</td>
+						</tr>
+						<tr ng-show="mc.sortTop.length<4">
+							<td colspan="4">&nbsp;</td>
+						</tr>
+						<tr ng-show="mc.sortTop.length<3">
+							<td colspan="4">&nbsp;</td>
+						</tr>
+						<tr ng-show="mc.sortTop.length<2">
+							<td colspan="4">&nbsp;</td>
+						</tr>
+						<tr ng-show="mc.sortTop.length<1">
+							<td colspan="4">&nbsp;</td>
+						</tr>					
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

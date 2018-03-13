@@ -1,0 +1,252 @@
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+body {
+	font-family: "Microsoft yahei";
+}
+.clear {
+	clear:both;
+}
+.coverPage {
+	width:1000px;
+	height:800px;
+	margin:0 auto;
+	font-size: 14px;
+	font-family: "宋体";
+}
+.coverPage .name {
+	width:500px;
+	float:left;
+	line-height: 72px;
+	margin-top:20px;
+	font-size: 18px;
+	font-weight: bold;
+	margin-left: 150px;
+}
+.coverPage .power {
+	width:180px;
+	float:right;
+	font-weight: bold;
+	border:1px solid #333;
+	padding:10px;
+	margin-top:20px;
+	line-height: 26px;
+	margin-right: 150px;
+}
+.coverPage .title {
+	width:1000px;
+	margin-top: 200px;
+}
+.coverPage .title h1,
+.coverPage .title h3{
+	width:1000px;
+	text-align: center;
+	font-weight: normal;
+}
+.coverPage .title h1 {
+	font-size:30px;
+	line-height: 50px;
+}
+.coverPage .title h3 {
+	font-size: 20px;
+	line-height: 30px;
+}
+.coverPage .footer {
+	margin-top:200px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 18px;
+}
+.line {
+	width:1000px;
+	height:2px;
+	background:#333;
+	margin:50px auto;
+}
+h1 {
+	width:960px;
+	margin:0 auto;
+	text-align: center;
+	line-height: 40px;
+	font-size:20px;
+}
+h2 {
+	width:960px;
+	margin:0 auto;
+	line-height: 30px;
+	font-size:16px;
+}
+p {
+	width:960px;
+	margin:0 auto;
+	text-indent: 28px;
+	font-size:14px;
+	line-height: 26px;
+}
+#scoreBar {
+	width:900px;
+	height:250px;
+	position: relative;
+	padding-right:100px;
+	padding-bottom: 10px;
+	background: #212139;
+	margin:20px auto;
+}
+#scoreBar .legend {
+	position: absolute;
+	width:80px;
+	right:10px;
+	top:25px;
+	font-size: 12px;
+}
+#scoreBar .legend .legend-item {
+	margin-bottom: 5px;
+	line-height: 15px;
+	cursor: pointer;
+	color:#fff;
+}
+#scoreBar .legend span {
+	display: inline-block;
+	width:25px;
+	height:15px;
+	border-radius: 4px;
+	position: relative;
+	top:2px;
+	margin-right: 4px;
+}
+#scoreBar .legend .span1 {
+	background: #f8bc66;
+}
+#scoreBar .legend .span2 {
+	background: #f03153;
+}
+#scoreBar .legend .span3 {
+	background: #18cad4;
+}
+#scoreBar .legend .span4 {
+	background: #3085ef;
+}
+#scoreBar .legend .span5 {
+	background: #9260f5;
+}
+
+#subjectPie {
+	width:500px;
+	height:250px;
+	margin:20px auto;
+}
+#timeRadar {
+	width:500px;
+	height:250px;
+	margin:20px auto;
+	background: #212139;
+}
+
+#educationBar {
+	width:900px;
+	height:200px;
+	position: relative;
+	padding-right:100px;
+	padding-bottom: 20px;
+	margin:20px auto;
+	background: #212139;
+}
+#educationBar .legend {
+	position: absolute;
+	width:80px;
+	right:10px;
+	top:25px;
+	font-size: 12px;
+	color: #fff;
+}
+#educationBar .legend .legend-item {
+	margin-bottom: 5px;
+	line-height: 15px;
+	cursor: pointer;
+}
+#educationBar .legend span {
+	display: inline-block;
+	width:25px;
+	height:15px;
+	border-radius: 4px;
+	position: relative;
+	top:2px;
+	margin-right: 4px;
+}
+#educationBar .legend .span0 {
+	background: #3085ef;
+}
+#educationBar .legend .span1 {
+	background: #f03153;
+}
+#educationBar .legend .span2 {
+	background: #f8bc66;
+}
+#educationBar .legend .span3 {
+	background: #18cad4;
+}
+
+#scoreRates {
+	position: relative;
+	padding-top: 50px;
+	width:900px;
+	height:250px;
+	background: #212139;
+	margin:20px auto;
+	color:#fff;
+}
+#scoreRates h3 {
+    height: 40px;
+    line-height: 40px;
+    font-weight: normal;
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    padding-left:20px;
+}
+#scoreRates .item {
+	width:150px;
+	height:100%;
+	float:left;
+	position: relative;
+	padding-bottom: 30px;
+}
+#scoreRates .item .chart {
+	width:100%;
+	height:100%;
+}
+#scoreRates .item .name {
+	position: absolute;
+	bottom: 20px;
+	line-height: 20px;
+	width:100%;
+	font-size: 12px;
+	text-align: center;
+}
+.h3 {
+	font-size:12px;
+	text-align: center;
+	width:900px;
+	margin:0 auto;
+	line-height: 40px;
+}
+.a-right {
+	width:900px;
+	margin:0 auto;
+	text-align: right;
+	font-size: 14px;
+	line-height:30px;
+}
+table {
+	border-collapse: collapse;
+	width:900px;
+	margin:0 auto;
+	border:1px solid #666;
+	font-size:14px;
+}
+table td {
+	border:1px solid #666;
+	padding:5px 10px;
+}

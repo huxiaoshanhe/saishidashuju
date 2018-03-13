@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="pf">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<title>赛事大数据-赛果实时大数据（初赛）</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/result.css" />
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/echarts.min.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/result.js"></script>
+</head>
+<body>
+	<div ng-include="'common/header.html'"></div>
+	<div class="main" ng-controller="mainCtrl as mc">
+		<div class="first-row">
+			<div class="left">
+				<div class="average">
+					<div class="inner">
+						全国平均分(百分修正)
+						<span class="little"><a>客观题:<i>{{mc.data.SCORE_O_AVG}}</i></a><a>主观题:<i>{{mc.data.SCORE_S_AVG}}</i></a></span>
+						<span class="big" ng-bind="mc.data.SCORE_AVG"></span>
+					</div>
+				</div>
+				<div class="distribute">
+					<div class="inner">
+						<score-distribute data="mc.scoreRing"></score-distribute>
+					</div>
+				</div>
+			</div>
+			<div class="middle">
+				<div class="inner">
+					<average-university data="mc.avgUniversity"></average-university>
+				</div>
+			</div>
+			<div class="right">
+				<div class="inner">
+					<div class="nandu">
+						<h3>全国试卷难度平均值</h3>
+						<dl>
+							<dt><div ng-style="mc.hardStyle" title="{{mc.hard}}"></div></dt>
+							<dd>试卷总数：{{mc.hardTop[0].DCOUNT}} &nbsp;&nbsp;&nbsp;&nbsp;难度区间：[0,1]</dd>
+						</dl>
+					</div>
+					<div class="qufendu">
+						<h3>全国试卷区分度平均值</h3>
+						<dl>
+							<dt><div ng-style="mc.areaStyle" title="{{mc.area}}"></div></dt>
+							<dd>试卷总数：{{mc.areaTop[0].DCOUNT}} &nbsp;&nbsp;&nbsp;&nbsp;区分度区间：[0,1]</dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="second-row">
+			<div class="left">
+				<div class="inner">
+					<h3>不同类型试卷得分率</h3>
+					<score-rates data="mc.scoreRates"></score-rates>
+				</div>
+			</div>
+			<div class="middle">
+				<div class="inner">
+					<h2>试卷难度排行榜(Top10)</h2>
+					<table cellspacing="0" cellpadding="0">
+						<tr>
+							<th>排名</th>
+							<th>高校名称</th>
+							<th>试卷</th>
+							<th>难度</th>
+						</tr>
+						<tr ng-repeat="h in mc.hardTop">
+							<td><span class="icon-{{h.OVER}}">{{h.OVER}}</span></td>
+							<td><p style="max-width: 140px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;" title="{{h.GROUP_NAME}}">{{h.GROUP_NAME}}</p></td>
+							<td><p style="max-width: 140px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;" title="{{h.TITLE}}">{{h.TITLE}}</p></td>
+							<td>{{h.PAPER_D}}</td>
+						</tr>
+						<tr ng-show="mc.hardTop.length<10">
+							<td colspan="4">&nbsp;</td>
+						</tr>	
+						<tr ng-show="mc.hardTop.length<9">
+							<td colspan="4">&nbsp;</td>
+						</tr>	
+						<tr ng-show="mc.hardTop.length<8">
+							<td colspan="4">&nbsp;</td>
+						</tr>	
+						<tr ng-show="mc.hardTop.length<7">
+							<td colspan="4">&nbsp;</td>
+						</tr>
+						<tr ng-show="mc.hardTop.length<6">
+							<td colspan="4">&nbsp;</td>
+						</tr>
+						<tr ng-show="mc.hardTop.length<5">
+							<td colspan="4">&nbsp;</td>
+						</tr>
+						<tr ng-show="mc.hardTop.length<4">
+							<td colspan="4">&nbsp;</td>
+						</tr>
+						<tr ng-show="mc.hardTop.length<3">
+							<td colspan="4">&nbsp;</td>
+						</tr>
+						<tr ng-show="mc.hardTop.length<2">
+							<td colspan="4">&nbsp;</td>
+						</tr>
+						<tr ng-show="mc.hardTop.length<1">
+							<td colspan="4">&nbsp;</td>
+						</tr>						
+					</table>
+				</div>
+			</div>
+			<div class="right">
+				<div class="inner">
+					<h2>试卷区分度排行榜(Top10)</h2>
+					<table cellspacing="0" cellpadding="0">
+						<tr>
+							<th>排名</th>
+							<th>高校名称</th>
+							<th>试卷</th>
+							<th>区分度</th>
+						</tr>
+						<tr ng-repeat="h in mc.areaTop">
+							<td><span class="icon-{{h.OVER}}">{{h.OVER}}</span></td>
+							<td><p style="max-width: 130px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;" title="{{h.GROUP_NAME}}">{{h.GROUP_NAME}}</p></td>
+							<td><p style="max-width: 140px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;" title="{{h.TITLE}}">{{h.TITLE}}</p></td>
+							<td>{{h.PAPER_DIS}}</td>
+						</tr>
+						<tr ng-show="mc.areaTop.length<10">
+							<td colspan="4">&nbsp;</td>
+						</tr>	
+						<tr ng-show="mc.areaTop.length<9">
+							<td colspan="4">&nbsp;</td>
+						</tr>	
+						<tr ng-show="mc.areaTop.length<8">
+							<td colspan="4">&nbsp;</td>
+						</tr>	
+						<tr ng-show="mc.areaTop.length<7">
+							<td colspan="4">&nbsp;</td>
+						</tr>
+						<tr ng-show="mc.areaTop.length<6">
+							<td colspan="4">&nbsp;</td>
+						</tr>
+						<tr ng-show="mc.areaTop.length<5">
+							<td colspan="4">&nbsp;</td>
+						</tr>
+						<tr ng-show="mc.areaTop.length<4">
+							<td colspan="4">&nbsp;</td>
+						</tr>
+						<tr ng-show="mc.areaTop.length<3">
+							<td colspan="4">&nbsp;</td>
+						</tr>
+						<tr ng-show="mc.areaTop.length<2">
+							<td colspan="4">&nbsp;</td>
+						</tr>
+						<tr ng-show="mc.areaTop.length<1">
+							<td colspan="4">&nbsp;</td>
+						</tr>	
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
